@@ -1,0 +1,5 @@
+What does PHP stand for?*Personal Home Page,Private Home Page,Program Home Page,Public Home Page*a
+Which HTML tag is used to define an internal style sheet?*&lt;style &gt;,&lt;script &gt,&lt;link &gt,&lt;meta &gt*a
+What does CSS stand for?*Computer Style Sheets,Creative Style Sheets,Cascading Style Sheets,Colorful Style Sheets*c
+In PHP, which symbol is used to start variables?*$,@,#,&*a
+Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?*title,src,longdesc,alt*d
