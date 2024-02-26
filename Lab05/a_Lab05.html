@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab05 question a solution</title>
+</head>
+<body>
+    <h1>Solution of Lab 05 question a</h1>
+    <h2>Enter a number greater than 0</h2>
+    <input type="number" id="numberInput" min="1">
+    <button onclick="printNumbers()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        function printNumbers() {
+            const input = document.getElementById('numberInput').value;
+            const number = parseInt(input);
+            let result = '';
+
+            if (number > 0) {
+                for (let i = number; i >= 1; i--) {
+                    
+                    if (i === 1 || i === number || number % i !== 0) {
+                        result += i + (i > 1 ? ', ' : '');
+                    }
+                }
+            }
+
+            document.getElementById('result').innerText = `Result is shown as below:\n${result}`;
+        }
+    </script>
+</body>
+</html>

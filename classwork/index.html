@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Add Address Book</button>
+    <div id="addressBookContainer">
+        
+    </div>
+
+    <script>
+        let container = document.getElementById("addressBookContainer");
+        let btn = document.getElementById("btn")
+        let count =0;
+        if(count<3){
+            btn.addEventListener("click", function (){
+                let miniContainer = document.createElement("div");
+                let textCon = document.createTextNode("Hello world this is addrss book one");
+                miniContainer.appendChild(textCon);
+                miniContainer.style.color ="#fff";
+                miniContainer.style.backgroundColor = "green";
+                miniContainer.style.height ="200px";
+                miniContainer.style.width = "250px";
+                miniContainer.style.padding = "25px";
+                miniContainer.style.marginBottom = "20px";
+                container.append(miniContainer);
+
+            })
+
+            count++;
+        }
+    </script>
+</body>
+</html>

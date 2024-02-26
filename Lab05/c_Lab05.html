@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Address Book</title>
+  <style type="text/css">
+      table {
+          font-family: Verdana, Arial, Helvetica, sans-serif;
+          font-size: small;
+          color: #000000;
+          width: 350px;
+      }
+      td, th {
+          border: 2px solid #000000;
+          padding: 5px;
+          text-align: left;
+      }
+      th {
+          height: 30px;
+      }
+      .newRow {
+         color:green;
+      }
+      #addButton {
+          margin-top: 10px; 
+      }
+  </style>
+  
+  
+</head>
+<body>
+    <table id="addressBookTable">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+        </tr>
+    </table>
+    <button id="addButton" onclick="appendRow()">append new row</button> <!-- Button to add a new row -->
+
+    <script type="text/javascript">
+         function addressBookItem(fname, lname, email) {
+        this.fname = fname;
+        this.lname = lname; 
+        this.email = email;
+    }
+    
+    addressBookItem.prototype.write = function(table) {
+        var row = table.insertRow(-1);
+        row.insertCell(0).innerText = this.fname;
+        row.insertCell(1).innerText = this.lname;
+        row.insertCell(2).innerText = this.email;
+    }
+    
+    function toggleBold(event) {
+    var target = event.target;
+    target.style.fontWeight = (target.style.fontWeight === 'bold' ? '' : 'bold');
+}
+
+function appendRow() {
+    var table = document.getElementById("addressBookTable");
+    var fname = prompt("Enter first name:", "");
+    var lname = prompt("Enter last name:", "");
+    var email = prompt("Enter email address:", "");
+
+    if (fname !== null && lname !== null && email !== null) {
+        var row = table.insertRow(-1);
+        row.className = 'newRow'; // Apply the different color style
+        
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerText = fname;
+        cell2.innerText = lname;
+        cell3.innerText = email;
+        
+        // Add event listeners to the cells
+        cell1.addEventListener('click', toggleBold);
+        cell2.addEventListener('click', toggleBold);
+        cell3.addEventListener('click', toggleBold);
+    }
+}
+
+        var addressBookTable = document.getElementById("addressBookTable");
+        var aB1 = new addressBookItem('Roger', 'Williams', 'rwilliams@gmail.com');
+        var aB2 = new addressBookItem('Rose', 'Schultz', 'rose_s@earthlink.net');
+        aB1.write(addressBookTable);
+        aB2.write(addressBookTable);
+
+
+        var existingRows = addressBookTable.rows;
+        for (var i = 1; i < existingRows.length; i++) {
+        var cells = existingRows[i].cells;
+        for (var j = 0; j < cells.length; j++) {
+        cells[j].addEventListener('click', toggleBold);
+    }
+}
+    </script>
+</body>
+</html>
